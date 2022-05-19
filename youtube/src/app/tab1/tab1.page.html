@@ -34,7 +34,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [appHideHeader]="header">
+<ion-content [appHideHeader]="header" scrollEvents="true">
   <div *ngIf="!videos.length">
     <div *ngFor="let i of [].constructor(4)" class="ion-margin-bottom">
       <ion-skeleton-text
