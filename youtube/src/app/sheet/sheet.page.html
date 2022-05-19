@@ -1,0 +1,18 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title mode="md">Create</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" fill="clear" slot="icon-only">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let item of items" lines="none">
+    <ion-icon slot="start" [name]="item.icon"></ion-icon>
+
+    <ion-label>{{item.text}}</ion-label>
+  </ion-item>
+</ion-content>
