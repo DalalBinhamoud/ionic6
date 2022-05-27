@@ -1,0 +1,17 @@
+.highlight {
+  color: var(--ion-color-primary);
+}
+
+.attachment {
+  border-radius: 10px;
+  border: 1px solid rgba($color: #8c8c8c, $alpha: 0.2);
+}
+
+.actions {
+  //   display: flex;
+  //   justify-content: space-around;
+  margin: 1rem 0;
+  ion-button {
+    color: gray;
+  }
+}
