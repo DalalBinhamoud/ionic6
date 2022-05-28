@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!todos.length">
+    <ion-card-content>No todos found</ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="todos.length > 0">
+    <ion-item *ngFor="let t of todos">
+      <ion-label>{{ t }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
