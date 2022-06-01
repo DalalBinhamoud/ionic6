@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button
+    expand="full"
+    (click)="unlockVault()"
+    *ngIf="state.isLocked"
+    color="success"
+  >
+    <ion-icon name="lock-open-outline" slot="start"></ion-icon>
+    Unlock vault
+  </ion-button>
+  <ion-button
+    expand="full"
+    (click)="lockVault()"
+    *ngIf="!state.isLocked"
+    color="warning"
+  >
+    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+    Lock vault
+  </ion-button>
+
+  <div *ngIf="!state.isLocked">
+    <ion-item>
+      <ion-label position="floating">Private</ion-label>
+      <ion-textarea [(ngModel)]="myInput"></ion-textarea>
+    </ion-item>
+    <ion-button expand="full" (click)="savePrivateData()">Save data</ion-button>
+
+    <ion-card>
+      <ion-card-content>{{ state.privateData }}</ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
