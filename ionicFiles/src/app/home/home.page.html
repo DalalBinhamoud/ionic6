@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      ionic images
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content fullScreen="[true]">
+  <div class="ion-text-center ion-margin-top">
+    <ion-text *ngIf="images.length === 0" color="dark">
+      no image uploaded
+    </ion-text>
   </div>
+
+  <ion-list>
+    <ion-item *ngFor="let image of images">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="image.data"></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{image.name}}</ion-label>
+      <ion-button (click)="uploadImage(image)" fill="clear">
+        <ion-icon name="cloud-upload-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="deleteImage(image)" fill="clear">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-button (click)="addImage()" expand="full">
+    <ion-icon name="camera-outline" class="ion-padding-end"></ion-icon>
+    <ion-label>add image</ion-label>
+  </ion-button>
+</ion-footer>
